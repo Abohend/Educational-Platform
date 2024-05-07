@@ -1,0 +1,23 @@
+﻿@model List<Instructor>
+
+@* @{
+    Layout = "_advLayout";
+} *@
+
+@foreach (Instructor instructor in Model)
+{
+    <div class="card" style="width:15rem; margin:10px; display:inline-block">
+        <img src="/images/@instructor.Img" class="card-img-top" alt="Image">
+        <div class="card-body">
+            <p class="card-text">@instructor.Name</p>
+            <a href="/Instructor/GetOne/@instructor.Id" class="btn btn-primary">Details</a>
+            <a href="/Instructor/edit/@instructor.Id" class="btn btn-primary">Edit</a>
+            <a asp-action="Delete" asp-route-id="@instructor.Id" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+}
+
+<div>
+    <a class="btn btn-dark"  asp-action="add">Add new</a>
+</div>
+

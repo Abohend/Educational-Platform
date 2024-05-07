@@ -1,0 +1,57 @@
+﻿@model MVC.ModelView.UserMV;
+@{
+    ViewData["Title"] = "index";
+}
+
+<h1>Profile</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        @if (User.IsInRole("Trainee"))
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Grade)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Grade)
+            </dd>
+        }
+        else if (User.IsInRole("Instructor"))
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit">Edit</a>
+</div> 

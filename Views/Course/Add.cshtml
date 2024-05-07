@@ -1,0 +1,39 @@
+﻿@model Course
+
+@{
+	var departments = ViewBag.Departments;
+}
+
+<h1>Add new course</h1>
+
+<form asp-action="add" method="post">
+	<div>
+		<label asp-for="Name" class="form-label"></label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label asp-for="Degree" class="form-label"></label>
+		<input asp-for="Degree" class="form-control" />
+		<span asp-validation-for="Degree" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label asp-for="Min_Degree" class="form-label"></label>
+		<input asp-for="Min_Degree" class="form-control" />
+		<span asp-validation-for="Min_Degree" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label asp-for="DepartmentId" class="form-label"></label>
+		<select asp-for="DepartmentId" asp-items="@departments" class="form-select"></select>
+	</div>
+	<br />
+	<input type="submit" value="Add" class="btn btn-dark" />
+</form>
+
+@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}
+

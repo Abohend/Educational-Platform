@@ -1,0 +1,13 @@
+﻿<script>
+	function GetRelatedCourses(DepartmentId) {
+		$.ajax({
+			url: "/Instructor/GetCoursesForDepartment/" + DepartmentId, success: function (result) {
+				document.getElementById("CourseId").innerHTML = "";
+				for (let c of result) {
+					console.log(c);
+					document.getElementById("CourseId").innerHTML += "<option value=" + c.id + ">" + c.name + "</option>";
+				}
+			}
+		});
+	}
+</script>

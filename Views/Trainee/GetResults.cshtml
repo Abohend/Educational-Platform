@@ -1,0 +1,24 @@
+﻿@using MVC.ModelView
+@model TraineeDegreeCourseMV
+
+<h1>Hello, @Model.TraineeName</h1>
+<h4>Your courses result: </h4>
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>Course</th>
+			<th>Result</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var course in Model.TraineePoints)
+		{
+			string color = (course.Value.Item2) ? "red" : "green";
+			<tr>
+				<td>@course.Key</td>
+				<td style="color: @color">@course.Value.Item1</td>
+			</tr>
+		}
+	</tbody>
+</table>

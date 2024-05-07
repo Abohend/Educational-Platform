@@ -1,0 +1,15 @@
+﻿@model Instructor
+
+@{
+    Instructor instructor = Model;
+}
+
+<div class="card" style="width: 18rem;">
+    <img src="/images/@instructor.Img" class="card-img-top" alt="Image">
+    <div class="card-body">
+        <p class="card-text">Name: @instructor.Name</p>
+        <p class="card-text">Salary: @instructor.Salary</p>
+        <p class="card-text">Address: @instructor.Address</p>
+        <p class="card-text">Department: @instructor.Department!.Name</p>
+    </div>
+</div>

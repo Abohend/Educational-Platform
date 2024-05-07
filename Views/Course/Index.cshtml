@@ -1,0 +1,35 @@
+﻿@model List<Course>
+@{
+	var courses = Model;
+	var i = 0;
+}
+
+<table class="table table-active">
+	<tr class="fw-bold">
+		<td>#</td>
+		<td>Course</td>
+		<td>Degree</td>
+		<td>Minmum Degree</td>
+		<td>Department</td>
+		<td>Edit</td>
+		<td>Delete</td>
+	</tr>
+	@foreach(var course in courses)
+	{
+		<tr>
+			<td>@{i+=1;} @i</td>
+			<td>@course.Name</td>
+			<td>@course.Degree</td>
+			<td>@course.Min_Degree</td>
+			<td>@course.Department!.Name</td>
+			<td>
+				<a asp-controller="course" asp-action="edit" asp-route-id="@course.Id" class="btn btn-info">Edit</a>
+			</td>
+			<td>
+				<a asp-controller="course" asp-action="delete" asp-route-id="@course.Id" class="btn btn-danger">Delete</a>
+			</td>
+		</tr>
+	}
+</table>
+
+<a class="btn btn-dark" asp-action="add">Add new</a>

@@ -1,0 +1,15 @@
+﻿@model List<Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="align-content-center">HomePage</h1>
+<h3>Hello, @ViewBag.Name</h3>
+<h4>Your courses: </h4>
+<ul class="list-group">
+    @foreach (var course in Model)
+    {
+        <li class="list-group-item">@course.Name</li>
+    }
+</ul>
